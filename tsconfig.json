@@ -1,0 +1,49 @@
+{
+  "version": "1.8.0",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "listFiles": false,
+    "noLib": false
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "filesGlob": [
+    "./src/**/*.ts",
+    "!./src/**/*.d.ts",
+    "./typings/**/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "files": [
+    "./src/lib/audio.ts",
+    "./src/lib/complex.ts",
+    "./src/lib/constants.ts",
+    "./src/lib/costas.ts",
+    "./src/lib/digi.ts",
+    "./src/lib/fft.ts",
+    "./src/lib/filter.ts",
+    "./src/lib/mode/fsk.ts",
+    "./src/lib/mode/mode.ts",
+    "./src/lib/mode/navtex.ts",
+    "./src/lib/mode/packet.ts",
+    "./src/lib/mode/psk.ts",
+    "./src/lib/mode/rtty.ts",
+    "./src/lib/nco.ts",
+    "./src/lib/resample.ts",
+    "./src/lib/tuner.ts",
+    "./src/lib/watch.ts",
+    "./src/lib/window.ts",
+    "./src/vendor.ts",
+    "./typings/MediaStream.d.ts",
+    "./typings/webaudio-missing.d.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "jdigi2",
+  "version": "1.0.0",
+  "description": "\"JS implementation of a digimodem\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "compression-webpack-plugin": "^0.3.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^1.1.1",
+    "gulp-size": "^2.0.0",
+    "gulp-tslint": "^4.3.1",
+    "gulp-util": "^3.0.7",
+    "gulp-webpack": "^1.5.0",
+    "ts-loader": "^0.8.0",
+    "tslint": "^3.3.0",
+    "typescript": "^1.8.0",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
+    "es6-promise": "^3.0.2",
+    "jquery": "^2.2.0"
+  }
+}
