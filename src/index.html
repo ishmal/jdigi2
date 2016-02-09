@@ -10,20 +10,33 @@
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <base href="/">
 
-  <!--link to bootstrap.css-->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
 
 </head>
 <body>
-<div class="container">
-  <app>
-    Loading...
-  </app>
-</div>
-<!-- Angular2 files -->
-<script src="/build/vendor.bundle.js"></script>
-<!-- App script -->
-<script src="/build/app.js"></script>
+
+  <div class="collapse" id="navbar-header">
+     <div class="container-fluid bg-inverse p-a-1">
+       <h4>Modes</h4>
+       <div id="jdigi-config"></div>
+     </div>
+   </div>
+   <div class="navbar navbar-light bg-faded navbar-static-top m-b-1">
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">
+       &#9776;
+     </button>
+   </div>
+
+   <div class="container">
+     <div class="jumbotron">
+       <h1>Navbar example</h1>
+       <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
+       <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+     </div>
+   </div>
+
 </body>
 </html>
