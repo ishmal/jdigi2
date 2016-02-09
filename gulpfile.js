@@ -44,7 +44,7 @@ gulp.task('tslint', function() {
 gulp.task('lint', ['tslint', 'eslint']);
 
 gulp.task("copy", function(cb) {
-    gulp.src("./src/index.*")
+    gulp.src("./src/index.html")
     .pipe(gulp.dest("./dist"));
 });
 
@@ -57,24 +57,24 @@ gulp.task('clean', function(cb) {
   ]).then(() => {cb();});
 });
 
+var wp_config = require('./webpack.config.js');
+
 gulp.task("wp", function(callback){
   return gulp.src('src/index.js')
-  .pipe(webpack( require('./webpack.config.js') ))
+  .pipe(webpack(wp_config))
   .pipe(gulp.dest('dist/'));
 });
 
 gulp.task("webpack-dev-server", function(callback) {
     // Start a webpack-dev-server
-    var compiler = webpack({
-        // configuration
-    });
+    var compiler = webpack(wp_config);
 
     new WebpackDevServer(compiler, {
         // server and middleware options
-    }).listen(8080, "localhost", function(err) {
+    }).listen(3000, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         // Server listening
-        gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+        gutil.log("[webpack-dev-server]", "http://localhost:3000/webpack-dev-server/index.html");
 
         // keep the server alive or continue?
         // callback();

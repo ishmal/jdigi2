@@ -32,24 +32,19 @@ import {Tuner, TunerImpl, TunerDummy} from './tuner';
 /**
  * Interface for a text output widget, which the UI should overload
  */
-export class OutText {
-    clear(): void {
-    }
+export interface OutText {
+    clear(): void;
 
-    putText(str: string): void {
-    }
+    putText(str: string): void;
 }
 
 /**
  * Interface for a test input widget, which the UI should overload
  */
-export class InText {
-    clear():void {
-    }
+export interface InText {
+    clear():void;
 
-    getText(): string {
-      return '';
-    }
+    getText(): string;
 }
 
 
@@ -76,7 +71,7 @@ export class Digi {
   _receive: (data: number) => void;
 
 
-    constructor() {
+    constructor(canvas?: HTMLCanvasElement) {
         this._audioInput = new AudioInput(this);
         this._audioOutput = new AudioOutput(this);
         this._watcher = new Watcher(this);
@@ -91,10 +86,10 @@ export class Digi {
         this._mode = this.pskMode;
         this._modes = [this.pskMode, this.rttyMode, this.packetMode, this.navtexMode];
 
-        this._tuner = new TunerDummy();
-        this._outtext = new OutText();
-        this._intext = new InText();
-        this._stattext = new OutText();
+        this._tuner = (canvas) ? new TunerImpl(this, canvas) : new TunerDummy();
+        this._outtext = { clear: () => {}, putText: (string) => {} };
+        this._intext = { clear: () => {}, getText: () => { return ''; } };
+        this._stattext = { clear: () => {}, putText: (string) => {} };
 
         this.setupReceive();
     }
