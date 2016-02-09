@@ -53,11 +53,18 @@ function JQConnector() {
             opts.forEach(function(opt){
               let anc = $("<a class='dropdown-item'>").attr('href','#').text(opt.name);
               menu.append(anc);
+              anc.click(() => {
+                btn.text(ctrl.name + ":" + opt.name);
+                ctrl.value = opt.value;
+              });
             });
           } else if (type === 'boolean') {
               let btn = $("<button type='button' class='btn btn-primary' data-toggle='button' " +
               " aria-pressed='false' autocomplete='off'>").text(ctrl.name);
               panel.append(btn);
+              btn.click(() => {
+                ctrl.value = btn.hasClass('checked');
+              });
           } else {
             console.log("Unhandled control type '" + type + "'");
           }
