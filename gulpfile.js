@@ -43,38 +43,42 @@ gulp.task('tslint', function() {
 
 gulp.task('lint', ['tslint', 'eslint']);
 
+gulp.task("copy", function(cb) {
+    gulp.src("./src/index.*")
+    .pipe(gulp.dest("./dist"));
+});
+
 gulp.task('clean', function(cb) {
   del([
     'src/**/*.d.ts',
     'src/**/*.js',
+    '!src/index.js',
     'src/**/*.js.map'
   ]).then(() => {cb();});
 });
 
-let wp_config = require('./webpack.config.js');
-
 gulp.task("wp", function(callback){
   return gulp.src('src/index.js')
-  .pipe(webpack(wp_config))
+  .pipe(webpack( require('./webpack.config.js') ))
   .pipe(gulp.dest('dist/'));
 });
 
-gulp.task("wds", function(callback) {
+gulp.task("webpack-dev-server", function(callback) {
     // Start a webpack-dev-server
-    let compiler = webpack(wp_config);
+    var compiler = webpack({
+        // configuration
+    });
 
     new WebpackDevServer(compiler, {
         // server and middleware options
-    }).listen(3000, "localhost", function(err) {
+    }).listen(8080, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         // Server listening
-        gutil.log("[webpack-dev-server]", "http://localhost:3000/webpack-dev-server/index.html");
+        gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
 
         // keep the server alive or continue?
         // callback();
     });
 });
 
-gulp.task('default', function () {
-  gulp.start('lint');
-});
+gulp.task('default', ['lint', 'copy', 'wp']);
