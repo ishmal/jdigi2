@@ -32,7 +32,12 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-#BOB 
+#BOB
 dist
 build
-
+src/**/*.d.ts
+src/**/*.js.map
+src/lib/**/*.js
+src/vendor.d.ts
+src/vendor.js
+src/vendor.js.map

@@ -40,6 +40,7 @@
     "./src/lib/watch.ts",
     "./src/lib/window.ts",
     "./src/vendor.ts",
+    "./typings/es6-shim/es6-shim.d.ts",
     "./typings/MediaStream.d.ts",
     "./typings/webaudio-missing.d.ts"
   ],

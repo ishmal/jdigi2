@@ -51,24 +51,24 @@ gulp.task('clean', function(cb) {
   ]).then(() => {cb();});
 });
 
+let wp_config = require('./webpack.config.js');
+
 gulp.task("wp", function(callback){
   return gulp.src('src/index.js')
-  .pipe(webpack( require('./webpack.config.js') ))
+  .pipe(webpack(wp_config))
   .pipe(gulp.dest('dist/'));
 });
 
-gulp.task("webpack-dev-server", function(callback) {
+gulp.task("wds", function(callback) {
     // Start a webpack-dev-server
-    var compiler = webpack({
-        // configuration
-    });
+    let compiler = webpack(wp_config);
 
     new WebpackDevServer(compiler, {
         // server and middleware options
-    }).listen(8080, "localhost", function(err) {
+    }).listen(3000, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         // Server listening
-        gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+        gutil.log("[webpack-dev-server]", "http://localhost:3000/webpack-dev-server/index.html");
 
         // keep the server alive or continue?
         // callback();
