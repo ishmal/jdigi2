@@ -189,6 +189,7 @@ export class NavtexMode extends FskBase {
 
         this._properties = {
             name: 'navtex',
+            description: '7-bit Navtex marine mode',
             tooltip: 'international naval teleprinter',
             controls: [
                 {

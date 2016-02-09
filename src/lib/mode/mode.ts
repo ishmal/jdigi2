@@ -39,6 +39,7 @@ export interface Control {
 
 export interface Properties {
   name: string;
+  description: string;
   tooltip: string;
   controls: Control[];
 }
@@ -83,6 +84,7 @@ export class Mode {
         this._nco = NcoCreate(this._frequency, par.sampleRate);
         this._properties = {
           name: 'mode',
+          description: 'Base mode class.  Please override this method',
           tooltip: 'Base mode class.  Please override this method',
           controls: []
         };

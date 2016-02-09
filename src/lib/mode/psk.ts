@@ -287,6 +287,7 @@ class PskMode extends Mode {
 
         this._properties = {
             name: 'psk',
+            description: 'phase-shift keying mode',
             tooltip: 'phase shift keying',
             controls: [
                 {
@@ -515,6 +516,7 @@ class PskMode2 extends Mode {
 
         this._properties = {
             name: 'psk',
+            description: 'phase-shift keying mode',
             tooltip: 'phase shift keying',
             controls: [
                 {

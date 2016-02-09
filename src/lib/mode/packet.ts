@@ -374,6 +374,7 @@ class PacketMode extends FskBase {
 
         this._properties = {
             name: 'packet',
+            description: 'asynchromous 8-bit packet mode',
             tooltip: 'AX.25 and APRS',
             controls: [
                 {

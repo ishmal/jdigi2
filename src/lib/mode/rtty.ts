@@ -131,6 +131,7 @@ class RttyMode extends FskBase {
 
         this._properties = {
             name: 'rtty',
+            description: 'Asynchronous 5-bit radio-teletype mode',
             tooltip: 'radio teletype',
             controls: [
                 {
